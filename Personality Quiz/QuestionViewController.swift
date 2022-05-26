@@ -88,6 +88,12 @@ class QuestionViewController: UIViewController {
     }
     
     fileprivate func updateMultipleStack(_ currentAnswers: [Answer]) {
+        //reset to default state
+        multiSwitch1.isOn = false
+        multiSwitch2.isOn = false
+        multiSwitch3.isOn = false
+        multiSwitch4.isOn = false
+        
         //display answer choices by updating labels
         multiLabel1.text = currentAnswers[0].text
         multiLabel2.text = currentAnswers[1].text
@@ -96,6 +102,9 @@ class QuestionViewController: UIViewController {
     }
     
     fileprivate func updateRangedStack(_ currentAnswers: [Answer]) {
+        //reset to default state
+        rangedSlider.value = 0.5
+        
         //display extremes of slider by updating labels
         rangedLabel1.text = currentAnswers.first!.text
         rangedLabel2.text = currentAnswers.last!.text

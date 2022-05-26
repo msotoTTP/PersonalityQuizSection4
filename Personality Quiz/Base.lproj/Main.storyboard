@@ -326,10 +326,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="kqK-aL-x4S">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="v40-Fh-B91"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="v40-Fh-B91">
+                            <connections>
+                                <segue destination="Uzo-Wu-8CF" kind="unwind" unwindAction="unwindToIntroductionWithUnwindSegue:" id="kph-Iz-hBT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="answerLabel" destination="042-wn-cFx" id="8By-ir-RuW"/>
+                        <outlet property="definitionLabel" destination="M32-fo-0bw" id="hNp-Y5-NOD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uah-8f-5oA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Uzo-Wu-8CF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2813.04347826087" y="109.82142857142857"/>
         </scene>

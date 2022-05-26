@@ -9,6 +9,9 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
+    @IBOutlet var answerLabel: UILabel!
+    @IBOutlet var definitionLabel: UILabel!
+    
     var responses: [Answer]
     
     init?(coder: NSCoder, responses: [Answer]) {
@@ -22,9 +25,20 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        print(responses)
+        
+        navigationItem.hidesBackButton = true
+        calculatePersonalityResult()
+    }
+    
+    func calculatePersonalityResult() {
+        let answerFrequencies = responses.reduce(into: [:]) { frequencies, animal in
+            frequencies[animal.type, default: 0] += 1
+        }
+        
+        let result = answerFrequencies.sorted { $0.value > $1.value }.first!.key
+        
+        answerLabel.text = "You are a \(result.rawValue)!"
+        definitionLabel.text = result.definition
     }
     
 
